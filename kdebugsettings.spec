@@ -1,6 +1,6 @@
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	16.08.3
+Version:	16.12.2
 Release:	1
 Epoch:		1
 License:	GPLv2+
