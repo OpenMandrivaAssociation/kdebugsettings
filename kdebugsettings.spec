@@ -1,18 +1,13 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
-Source0:	http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Gui)
@@ -44,8 +39,9 @@ BuildRequires:	pkgconfig(shared-mime-info)
 %description
 Tool for adjusting KDE debug settings
 
-%files
+%files -f %{name}.lang
 %config %{_sysconfdir}/xdg/kde.categories
+%config %{_sysconfdir}/xdg/kde.renamecategories
 %{_bindir}/kdebugsettings
 %{_datadir}/applications/org.kde.kdebugsettings.desktop
 
@@ -58,3 +54,4 @@ Tool for adjusting KDE debug settings
 
 %install
 %ninja_install -C build
+%find_lang %{name}
