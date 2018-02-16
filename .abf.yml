@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   kdebugsettings-17.12.1.tar.xz: 43c27f86eda362a41d759440bef2b91449c0ae54
+sources:
+  kdebugsettings-17.12.2.tar.xz: 5f2c7a03efbfcf9ea0d9e850e5b03b20c298f64d
