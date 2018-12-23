@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	 18.11.90
+Version:	 18.12.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
