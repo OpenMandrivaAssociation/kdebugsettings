@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -40,8 +40,9 @@ BuildRequires:	pkgconfig(shared-mime-info)
 Tool for adjusting KDE debug settings
 
 %files -f %{name}.lang
-%config %{_sysconfdir}/xdg/kde.categories
-%config %{_sysconfdir}/xdg/kde.renamecategories
+%{_datadir}/qlogging-categories5/kde.categories
+%{_datadir}/qlogging-categories5/kdebugsettings.categories
+%{_datadir}/qlogging-categories5/kde.renamecategories
 %{_bindir}/kdebugsettings
 %{_datadir}/applications/org.kde.kdebugsettings.desktop
 
