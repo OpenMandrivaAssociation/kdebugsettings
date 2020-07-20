@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	20.04.3
+Version:	20.07.80
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -40,7 +40,6 @@ BuildRequires:	pkgconfig(shared-mime-info)
 Tool for adjusting KDE debug settings
 
 %files -f %{name}.lang
-%{_datadir}/qlogging-categories5/kde.categories
 %{_datadir}/qlogging-categories5/kdebugsettings.categories
 %{_datadir}/qlogging-categories5/kde.renamecategories
 %{_bindir}/kdebugsettings
