@@ -2,7 +2,7 @@
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
 Version:	22.08.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
