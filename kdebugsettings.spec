@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	23.04.3
+Version:	23.08.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -49,6 +49,7 @@ Tool for adjusting KDE debug settings
 # No need to build a separate lib package because this is internal.
 # No headers shipped, so it won't be used by anything else.
 %{_libdir}/libkdebugsettings.so*
+%{_libdir}/libkdebugsettingscore.so*
 
 %prep
 %setup -q
