@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Tool for adjusting KDE debug settings
 Name:		kdebugsettings
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -40,6 +40,11 @@ BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	pkgconfig(shared-mime-info)
 
+%rename plasma6-kdebugsettings
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 Tool for adjusting KDE debug settings
 
@@ -54,16 +59,3 @@ Tool for adjusting KDE debug settings
 # No headers shipped, so it won't be used by anything else.
 %{_libdir}/libkdebugsettings.so*
 %{_libdir}/libkdebugsettingscore.so*
-
-%prep
-%autosetup -p1 -n kdebugsettings-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang kdebugsettings
